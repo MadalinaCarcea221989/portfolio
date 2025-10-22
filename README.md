@@ -45,6 +45,7 @@ All image references in the HTML have been updated to use these descriptive name
 - Interactive Terminal: Press `Ctrl + `` ` to open hidden terminal
 - Project Showcase: 12+ diverse projects across AI, ML, and game dev
 - Professional Gallery: Image carousel showcasing conferences and presentations
+- Certificate Gallery: Interactive slideshow featuring 38 professional certifications
 - About Section: Detailed work experience and education
 - Performance Metrics: Real-time load time display
 - Smooth Animations: Intersection Observer API for scroll effects
@@ -54,16 +55,50 @@ All image references in the HTML have been updated to use these descriptive name
 - Frontend: Pure HTML5, CSS3, Vanilla JavaScript
 - Icons: Font Awesome 6.4.0
 - Fonts: Inter & JetBrains Mono (Google Fonts)
+- Certificate Processing: Python with pdf2image & poppler
 - No Build Tools: Single-file architecture, ready to deploy
+
+## Certificate Management
+
+The portfolio includes automated PDF to PNG conversion for certificate management:
+
+### PDF to PNG Conversion Script
+
+```bash
+# Convert all PDFs in certificates_pdf/ to PNGs in certificates/
+python pdf_to_png.py
+
+# Convert specific PDF
+python pdf_to_png.py certificates_pdf/your-certificate.pdf
+
+# Convert entire directory
+python pdf_to_png.py certificates_pdf/
+```
+
+**Requirements:**
+
+- Python 3.6+
+- pdf2image library: `pip install pdf2image`
+- Poppler (automatically installed with pdf2image on Windows)
+
+**Features:**
+
+- Batch conversion of multiple PDFs
+- High-quality PNG output optimized for web
+- Automatic naming based on PDF filenames
+- Error handling for corrupted PDFs
 
 ## Project Structure
 
-```
+```text
 portfolio-website/
-├── index.html          # Complete portfolio (single file)
-├── images/             # Professional images with descriptive names
-├── README.md           # This file
-└── .gitignore         # Git ignore rules
+├── index.html              # Complete portfolio (single file)
+├── pdf_to_png.py           # PDF to PNG conversion script
+├── images/                 # Professional images with descriptive names
+├── certificates/           # PNG certificate images for slideshow
+├── certificates_pdf/       # Original PDF certificates
+├── README.md              # This file
+└── .gitignore            # Git ignore rules
 ```
 
 ## Deployment Options
@@ -134,7 +169,15 @@ Upload entire folder to any web server. Make sure `images/` folder is uploaded t
 - Thumbnail preview
 - Image captions
 
-### 6. Skills Section
+### 6. Certificate Gallery
+
+- 38 professional certifications in interactive slideshow
+- Zoom functionality for detailed viewing
+- Thumbnail navigation
+- Comprehensive descriptions for each certificate
+- PDF to PNG conversion for optimal web display
+
+### 7. Skills Section
 
 - 6 categories, 26+ skills
 - Python, C++, SQL, JavaScript, Java/C#
@@ -143,7 +186,7 @@ Upload entire folder to any web server. Make sure `images/` folder is uploaded t
 - Unity, Unreal, Blender
 - Power BI, NumPy, Jupyter, R
 
-### 7. Contact Section
+### 8. Contact Section
 
 - Real email: madalinacarcea@yahoo.com
 - Phone: +31 643 538 696
@@ -157,6 +200,7 @@ Upload entire folder to any web server. Make sure `images/` folder is uploaded t
 - Microservices architecture - Demonstrates senior-level thinking
 - 12+ projects - Diverse skillset showcase
 - Professional imagery - Conference talks, presentations
+- Certificate Gallery - 38 professional certifications in interactive slideshow
 - Working terminal easter egg - Shows technical creativity
 - Performance metrics - Auto-displays load times
 - Fully responsive - Works on phone, tablet, desktop
@@ -174,6 +218,23 @@ Find this in the `<style>` section (around line 20):
     --accent-primary: #00f0ff;  // Change this for different accent color
     --accent-secondary: #7c3aed;
 }
+```
+
+### Add More Certificates
+
+1. Place new PDF certificates in the `certificates_pdf/` folder
+2. Run the conversion script: `python pdf_to_png.py`
+3. Add new entries to the `certificates` array in the JavaScript section:
+
+```javascript
+const certificates = [
+    // existing certificates...
+    {
+        src: 'certificates/your-new-certificate.png',
+        title: 'Your Certificate Title',
+        description: 'Brief description of the certification and skills covered'
+    }
+];
 ```
 
 ### Add More Gallery Images
@@ -221,6 +282,8 @@ Note: Make sure images are in the correct folder before testing!
 - [ ] Checked all sections display correctly
 - [ ] Verified all links work
 - [ ] Gallery carousel functions properly
+- [ ] Certificate slideshow displays all certificates correctly
+- [ ] Zoom functionality works in certificate gallery
 - [ ] Social sharing meta tags updated
 
 ## Contact
