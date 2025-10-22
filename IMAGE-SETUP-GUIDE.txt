@@ -1,0 +1,113 @@
+# IMAGE SETUP GUIDE
+# ====================
+# Follow these steps to add images to your portfolio
+
+## STEP 1: Create images folder
+# --------------------------
+# In D:\Repos\portfolio-website\, create a folder named "images"
+# Final structure:
+#   portfolio-website/
+#   ├── index.html
+#   ├── images/  ← CREATE THIS
+#   ├── README.md
+#   └── .gitignore
+
+## STEP 2: Copy these 6 images from your old portfolio
+# ---------------------------------------------------
+# From your old Lovable project, copy these images:
+
+# IMAGE 1 - About Section Background:
+#   Source: /images/f07872e9-47eb-4159-b3fb-6b2ba4ff6f17.png
+#   Destination: D:\Repos\portfolio-website\images\workspace.jpg
+#   Usage: Background image in About section
+
+# IMAGE 2 - Gallery Image 1 (NLP Presentation):
+#   Source: /images/8f32465a-f3c6-43bd-957d-245ef80d1dab.png
+#   Destination: D:\Repos\portfolio-website\images\gallery-1.png
+#   Caption: "Presenting on Natural Language Processing"
+
+# IMAGE 3 - Gallery Image 2 (Conference Group):
+#   Source: /images/be2ebd16-1663-4a57-960a-be08b2663e1a.png
+#   Destination: D:\Repos\portfolio-website\images\gallery-2.png
+#   Caption: "Conference networking and collaboration"
+
+# IMAGE 4 - Gallery Image 3 (Professional Portrait):
+#   Source: /images/Screenshot2025-06-20003417.png
+#   Destination: D:\Repos\portfolio-website\images\gallery-3.png
+#   Caption: "Professional development activities"
+
+# IMAGE 5 - Gallery Image 4 (Speaking Engagement):
+#   Source: /images/f07872e9-47eb-4159-b3fb-6b2ba4ff6f17.png
+#   Destination: D:\Repos\portfolio-website\images\gallery-4.png
+#   Caption: "Conference presentation on stage"
+
+# IMAGE 6 - Gallery Image 5 (Workshop):
+#   Source: /images/96a80c04-231a-4020-abc7-434074738ebf.png
+#   Destination: D:\Repos\portfolio-website\images\gallery-5.png
+#   Caption: "Hands-on technical workshop"
+
+## STEP 3: Update index.html with image paths
+# -------------------------------------------
+# Open index.html in VS Code or any text editor
+# Use Find & Replace (Ctrl+H) to replace placeholders:
+
+# Replace 1:
+#   Find: PLACEHOLDER_IMAGE_PATH_1
+#   Replace with: images/workspace.jpg
+
+# Replace 2:
+#   Find: PLACEHOLDER_IMAGE_PATH_2
+#   Replace with: images/gallery-1.png
+
+# Replace 3:
+#   Find: PLACEHOLDER_IMAGE_PATH_3
+#   Replace with: images/gallery-2.png
+
+# Replace 4:
+#   Find: PLACEHOLDER_IMAGE_PATH_4
+#   Replace with: images/gallery-3.png
+
+# Replace 5:
+#   Find: PLACEHOLDER_IMAGE_PATH_5
+#   Replace with: images/gallery-4.png
+
+# Replace 6:
+#   Find: PLACEHOLDER_IMAGE_PATH_6
+#   Replace with: images/gallery-5.png
+
+## STEP 4: Test locally
+# --------------------
+# Open index.html in your browser to verify images load correctly
+# All images should display properly in:
+#   - About section (1 image)
+#   - Professional Gallery (5 images with carousel)
+
+## QUICK REFERENCE - Where each image appears:
+# --------------------------------------------
+# workspace.jpg → About section, right side background
+# gallery-1.png → Gallery carousel, slide 1
+# gallery-2.png → Gallery carousel, slide 2
+# gallery-3.png → Gallery carousel, slide 3
+# gallery-4.png → Gallery carousel, slide 4
+# gallery-5.png → Gallery carousel, slide 5
+
+## ALTERNATIVE: Use URLs instead of local files
+# ---------------------------------------------
+# If you want to host images elsewhere (like Imgur, CloudFlare, etc.),
+# just replace the placeholder with the full URL:
+#   Example: https://i.imgur.com/yourimage.png
+
+## IMAGE OPTIMIZATION TIPS (Optional):
+# ------------------------------------
+# Before uploading, consider optimizing images for web:
+#   - Use tools like TinyPNG or Squoosh
+#   - Target size: < 500KB per image
+#   - Format: JPG for photos, PNG for graphics
+#   - Resolution: Max 1920px wide
+
+## DONE!
+# -------
+# Once images are added and paths updated:
+#   1. Test locally (open index.html)
+#   2. If everything looks good, commit to Git
+#   3. Deploy to GitHub Pages / Netlify / Vercel

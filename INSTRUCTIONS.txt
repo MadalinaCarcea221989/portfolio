@@ -1,0 +1,22 @@
+// INSTRUCTIONS TO GET YOUR COMPLETE PORTFOLIO:
+// 
+// The artifact on the right contains your complete portfolio HTML.
+// 
+// TO SAVE IT:
+// 1. Click the artifact viewer on the right side of Claude
+// 2. Click the download button (⬇️) at the top
+// 3. Save as "index.html" 
+// 4. Move it to: D:\Repos\portfolio-website\
+//
+// OR:
+// 1. Click the three dots (⋯) in the artifact
+// 2. Select "View Code"
+// 3. Copy all the HTML
+// 4. Replace the contents of index.html with this code
+//
+// YOUR FILES ARE READY AT: D:\Repos\portfolio-website\
+// ✅ README.md (complete documentation)
+// ✅ .gitignore (git ignore rules)
+// ⚠️ index.html (needs complete code from artifact)
+
+console.log("Follow the instructions above to get your complete portfolio!");
