@@ -307,7 +307,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
             min-height: 100vh;
             padding-top: 5rem;
         }
@@ -1123,222 +1123,67 @@
             text-align: right;
         }
         
-        /* Responsive */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            h2 {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .project-stats {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .hero-cta {
-                flex-direction: column;
-                width: 100%;
-                gap: 1rem;
-            }
-            
-            .btn {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
-            }
-            
-            /* About section responsive */
-            section#about > div > div:nth-child(2) {
-                grid-template-columns: 1fr !important;
-                gap: 2rem !important;
-            }
-            
-            /* Skills section responsive */
-            .skills-container {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .skill-item {
-                grid-template-columns: 140px 1fr;
-            }
-            
-            .skill-name {
-                font-size: 0.85rem;
-            }
-            
-            .hero-meta {
-                gap: 1rem;
-                justify-content: flex-start;
-            }
-            
-            .meta-item {
-                font-size: 0.85rem;
-                padding: 0.4rem 0.8rem;
-            }
-            
-            .section-header {
-                margin-bottom: 3rem;
-            }
-            
-            .featured-project {
-                padding: 1.5rem;
-            }
-            
-            .project-card {
-                min-height: auto;
-            }
-            
-            .project-card h3 {
-                min-height: auto;
-                font-size: 1.3rem;
-            }
-            
-            .project-card p {
-                min-height: auto;
-            }
+        /* Modern button hover and transition */
+        .btn, button, .project-link, .social-link {
+          transition: background 0.3s, color 0.3s, box-shadow 0.3s, border 0.3s, transform 0.2s;
+        }
+        .btn:hover, button:hover, .project-link:hover, .social-link:hover {
+          background: linear-gradient(90deg, #7c3aed, #3b82f6);
+          color: #fff !important;
+          box-shadow: 0 4px 24px rgba(124,58,237,0.15);
+          transform: translateY(-2px) scale(1.04);
+          border-color: #7c3aed;
         }
         
-        /* Light Theme */
-        body.light-theme {
-            --bg-primary: #f8fafc;
-            --bg-secondary: #ffffff;
-            --bg-tertiary: #f1f5f9;
-            --text-primary: #0f172a;
-            --text-secondary: #334155;
-            --text-dim: #64748b;
+        /* Image hover effect */
+        img, .gallery-img, .cert-img {
+          transition: box-shadow 0.3s, transform 0.3s, filter 0.3s;
+        }
+        img:hover, .gallery-img:hover, .cert-img:hover {
+          box-shadow: 0 8px 32px rgba(59,130,246,0.18);
+          transform: scale(1.03) rotate(-1deg);
+          filter: brightness(1.08) saturate(1.1);
         }
         
-        body.light-theme .bg-animation {
-            opacity: 0.08;
+        /* Responsive hero section */
+        .hero .container {
+          flex-wrap: wrap;
+          flex-direction: row;
+        }
+        @media (max-width: 900px) {
+          .hero .container {
+            flex-direction: column;
+            gap: 1.5rem;
+          }
+          .hero .container img {
+            margin: 0 auto;
+          }
         }
         
-        body.light-theme nav {
-            background: rgba(248, 250, 252, 0.9);
-            border-bottom: 1px solid rgba(220, 38, 38, 0.2);
+        /* Responsive certificate gallery */
+        #certificatesMain {
+          max-width: 100vw;
+        }
+        @media (max-width: 600px) {
+          #certificatesMain {
+            height: 140px !important;
+          }
+          #certificatesMain img {
+            max-width: 98%;
+            max-height: 90%;
+          }
         }
         
-        body.light-theme .featured-project {
-            border-color: rgba(220, 38, 38, 0.25);
-            box-shadow: 0 10px 40px rgba(220, 38, 38, 0.1);
+        /* Responsive project cards */
+        .projects-grid {
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 2rem;
         }
-        
-        /* Section Dividers */
-        section:not(:last-child)::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, #dc2626, #7c3aed, #3b82f6);
-            margin: 4rem auto 0;
-            border-radius: 2px;
-        }
-        
-        /* Improved Scrollbar */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #dc2626, #7c3aed);
-            border-radius: 6px;
-            border: 2px solid var(--bg-primary);
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #ef4444, #8b5cf6);
-        }
-        
-        /* Improved Selection */
-        ::selection {
-            background: rgba(220, 38, 38, 0.3);
-            color: white;
-        }
-        
-        /* Floating particles effect */
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: var(--accent-primary);
-            border-radius: 50%;
-            top: 20%;
-            left: 30%;
-            animation: float-particle 8s infinite;
-            box-shadow: 0 0 10px rgba(220, 38, 38, 0.6);
-        }
-        
-        @keyframes float-particle {
-            0%, 100% { 
-                transform: translate(0, 0) scale(1);
-                opacity: 0.3;
-            }
-            50% { 
-                transform: translate(100px, -100px) scale(1.5);
-                opacity: 0.8;
-            }
-        }
-        
-        /* Grid pattern overlay */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(220, 38, 38, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        /* Subtle scanline effect */
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(transparent 50%, rgba(220, 38, 38, 0.01) 50%);
-            background-size: 100% 4px;
-            pointer-events: none;
-            z-index: 0;
-            animation: scanline 8s linear infinite;
-        }
-        
-        @keyframes scanline {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(100%); }
+        @media (max-width: 700px) {
+          .projects-grid {
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+          }
         }
     </style>
 </head>
@@ -1367,38 +1212,29 @@
     
     <!-- Hero Section -->
     <section class="hero visible">
-        <div class="container">
-            <div class="terminal-text">> Madalina_Carcea_Portfolio.init()</div>
-            <h1>Madalina Carcea</h1>
-            <p class="hero-subtitle">
-                Building AI compliance systems at the intersection of law and technology. 
-                Data Science & AI Engineering student crafting solutions for GDPR and AI Act regulations.
-            </p>
-            <div class="hero-cta">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+      <div class="container hero-flex" style="display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+            <div style="display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap; justify-content: center;">
+                <img src="images/profile_pic.png" alt="Profile Left" style="width: 220px; height: 220px; object-fit: cover; border-radius: 50%; box-shadow: 0 4px 24px rgba(0,0,0,0.18);">
+                <div style="flex: 1; min-width: 280px; text-align: center; max-width: 480px;">
+                    <h1 style="font-size: 2.8rem; margin-bottom: 0.5rem;">Madalina Carcea</h1>
+                    <p class="hero-subtitle" style="font-size: 1.15rem; margin-bottom: 1.5rem;">
+                        Building AI compliance systems at the intersection of law and technology.<br>
+                        Data Science & AI Engineering student crafting solutions for GDPR and AI Act regulations.
+                    </p>
+                    <div class="hero-cta" style="margin-bottom: 1.2rem;">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    </div>
+                    <div class="hero-meta" style="display: flex; flex-wrap: wrap; gap: 0.7rem; justify-content: center;">
+                        <div class="meta-item"><div class="status-dot"></div>Currently @ SNP Natuurreizen</div>
+                        <div class="meta-item"><i class="fas fa-map-marker-alt"></i> Breda, Netherlands</div>
+                        <div class="meta-item"><i class="fas fa-graduation-cap"></i> BUas Student</div>
+                        <div class="meta-item"><i class="fas fa-globe"></i> EN | RO | DE</div>
+                    </div>
+                </div>
+                <img src="images/profile_pic_2.png" alt="Profile Right" style="width: 220px; height: 220px; object-fit: cover; border-radius: 50%; box-shadow: 0 4px 24px rgba(0,0,0,0.18);">
             </div>
-            <div class="hero-meta">
-                <div class="meta-item">
-                    <div class="status-dot"></div>
-                    <span>Currently @ SNP Natuurreizen</span>
-                </div>
-                <div class="meta-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Breda, Netherlands</span>
-                </div>
-                <div class="meta-item">
-                    <i class="fas fa-graduation-cap"></i>
-                    <span>BUas Student</span>
-                </div>
-                <div class="meta-item">
-                    <i class="fas fa-globe"></i>
-                    <span>EN | RO | DE</span>
-                </div>
-            </div>
-            
-            <!-- Social Sharing -->
-            <div style="display: flex; gap: 1rem; margin-top: 2rem; justify-content: center;">
+            <div style="display: flex; gap: 1rem; margin-top: 1.2rem; justify-content: center;">
                 <button onclick="shareOnLinkedIn()" style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); color: #3b82f6; padding: 0.5rem 1rem; border-radius: 20px; cursor: pointer; font-size: 0.9rem; transition: all 0.3s; display: flex; align-items: center; gap: 0.5rem;">
                     <i class="fab fa-linkedin"></i> Share
                 </button>
@@ -1408,31 +1244,6 @@
                 <button onclick="copyShareLink()" style="background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); color: #8b5cf6; padding: 0.5rem 1rem; border-radius: 20px; cursor: pointer; font-size: 0.9rem; transition: all 0.3s; display: flex; align-items: center; gap: 0.5rem;">
                     <i class="fas fa-link"></i> Copy Link
                 </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Profile Section -->
-    <section id="profile">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-tag">&lt;meet_me /&gt;</div>
-                <h2>Get to Know Me</h2>
-                <p class="section-description">
-                    A glimpse into who I am beyond the code and projects
-                </p>
-            </div>
-
-            <div style="display: flex; justify-content: center; align-items: center; padding: 3rem 0;">
-                <div style="position: relative; max-width: 400px; width: 100%;">
-                    <img src="images/profile_pic.png" alt="Madalina Carcea - AI Engineering & Data Science Student"
-                         style="width: 100%; height: 400px; object-fit: cover; border-radius: 20px; border: 3px solid rgba(0, 240, 255, 0.3); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);">
-                    <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(124, 58, 237, 0.1)); border-radius: 20px;"></div>
-                    <div style="position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); background: var(--bg-secondary); padding: 1rem 2rem; border-radius: 50px; border: 2px solid rgba(0, 240, 255, 0.3); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);">
-                        <p style="color: var(--text-primary); font-weight: 600; margin: 0; font-size: 1.1rem;">Madalina Carcea</p>
-                        <p style="color: var(--accent-primary); font-size: 0.9rem; margin: 0.25rem 0 0 0;">AI Engineering & Data Science</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -1720,7 +1531,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- Skills Section -->
     <section id="skills">
         <div class="container">
@@ -2109,7 +1920,7 @@
                 <div style="display: flex; justify-content: center; align-items: center;">
                     <div style="position: relative; width: 100%; max-width: 500px;">
                         <!-- PLACEHOLDER: Replace src with your actual image path -->
-                        <img src="images/profile_pic.png" alt="AI workspace" 
+                        <img src="images/Diploma.png" alt="AI workspace" 
                              style="width: 100%; height: 500px; object-fit: cover; border-radius: 16px; border: 1px solid rgba(0, 240, 255, 0.2);">
                         <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 240, 255, 0.1), transparent); border-radius: 16px;"></div>
                     </div>
@@ -2117,73 +1928,7 @@
             </div>
         </div>
     </section>
-    
-    <!-- Testimonials Section -->
-    <section id="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-tag">&lt;testimonials /&gt;</div>
-                <h2>What People Say</h2>
-                <p class="section-description">
-                    Feedback from colleagues, mentors, and collaborators
-                </p>
-            </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
-                <div class="testimonial-card" style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; border: 1px solid rgba(100, 116, 139, 0.2); position: relative;">
-                    <div style="position: absolute; top: 1rem; left: 1rem; font-size: 3rem; color: rgba(220, 38, 38, 0.1); line-height: 1;">"</div>
-                    <p style="color: var(--text-secondary); font-style: italic; line-height: 1.6; margin-bottom: 1.5rem; padding-left: 2rem;">
-                        "Madalina demonstrated exceptional technical skills and a deep understanding of AI compliance frameworks. 
-                        Her work on our GDPR compliance system was instrumental in ensuring regulatory compliance while maintaining system efficiency."
-                    </p>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #dc2626, #7c3aed); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">
-                            JD
-                        </div>
-                        <div>
-                            <div style="font-weight: 600; color: var(--text-primary);">Jan Director</div>
-                            <div style="color: var(--text-dim); font-size: 0.9rem;">Head of Compliance, SNP Natuurreizen</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card" style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; border: 1px solid rgba(100, 116, 139, 0.2); position: relative;">
-                    <div style="position: absolute; top: 1rem; left: 1rem; font-size: 3rem; color: rgba(220, 38, 38, 0.1); line-height: 1;">"</div>
-                    <p style="color: var(--text-secondary); font-style: italic; line-height: 1.6; margin-bottom: 1.5rem; padding-left: 2rem;">
-                        "Working with Madalina on the Erasmus+ program was inspiring. Her ability to bridge technical concepts with practical applications 
-                        made complex AI topics accessible to our international team."
-                    </p>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #3b82f6, #8b5cf6); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">
-                            MS
-                        </div>
-                        <div>
-                            <div style="font-weight: 600; color: var(--text-primary);">Maria Schmidt</div>
-                            <div style="color: var(--text-dim); font-size: 0.9rem;">Professor, FH St. Pölten</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card" style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; border: 1px solid rgba(100, 116, 139, 0.2); position: relative;">
-                    <div style="position: absolute; top: 1rem; left: 1rem; font-size: 3rem; color: rgba(220, 38, 38, 0.1); line-height: 1;">"</div>
-                    <p style="color: var(--text-secondary); font-style: italic; line-height: 1.6; margin-bottom: 1.5rem; padding-left: 2rem;">
-                        "Madalina's internship project on AI system optimization exceeded our expectations. Her analytical approach and 
-                        attention to detail helped us identify significant efficiency improvements in our production planning."
-                    </p>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #10b981, #3b82f6); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">
-                            RB
-                        </div>
-                        <div>
-                            <div style="font-weight: 600; color: var(--text-primary);">Robert Bakker</div>
-                            <div style="color: var(--text-dim); font-size: 0.9rem;">Operations Manager, DKG Groep</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
+
     <!-- Certifications & Achievements Section -->
     <section id="certifications">
         <div class="container">
@@ -2194,163 +1939,30 @@
                     Professional certifications and notable achievements
                 </p>
             </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                <div class="cert-card" style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; border: 1px solid rgba(100, 116, 139, 0.2); transition: all 0.3s; position: relative; overflow: hidden;">
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #dc2626, #7c3aed, #3b82f6);"></div>
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #dc2626, #7c3aed); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white;">
-                            <i class="fas fa-certificate"></i>
-                        </div>
-                        <div>
-                            <h3 style="font-size: 1.2rem; color: var(--text-primary); margin: 0;">Azure AI Fundamentals</h3>
-                            <p style="color: var(--text-dim); font-size: 0.9rem; margin: 0.5rem 0 0 0;">Microsoft Certified</p>
-                        </div>
+            <div style="max-width: 600px; margin: 0 auto;">
+                <div id="certificatesMain" style="position: relative; background: var(--bg-secondary); border-radius: 16px; border: 1px solid rgba(0,240,255,0.2); box-shadow: 0 4px 24px rgba(0,240,255,0.08); padding: 2.5rem 1.5rem 2.5rem 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
+                    <img id="certificateImage" src="" alt="Certificate" style="width: 100%; max-width: 420px; max-height: 320px; object-fit: contain; border-radius: 12px; background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(0,240,255,0.08)); box-shadow: 0 2px 16px rgba(0,240,255,0.10); transition: all 0.3s; cursor: pointer;" onclick="toggleCertificateZoom()">
+                    <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+                        <h3 id="certificateTitle" style="color: var(--accent-primary); font-size: 1.3rem; margin-bottom: 0.5rem; text-align: center;"></h3>
+                        <p id="certificateDescription" style="color: var(--text-secondary); font-size: 1rem; text-align: center; margin-bottom: 0.5rem;"></p>
+                        <span id="certificatesCounter" style="color: var(--accent-primary); font-size: 1.1rem; margin-bottom: 0.5rem;"></span>
                     </div>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5;">
-                        Demonstrated foundational knowledge of AI concepts, machine learning, and Azure AI services.
-                    </p>
-                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: var(--accent-primary); font-size: 0.9rem; font-weight: 500;">Issued: 2024</span>
+                    <div style="display: flex; gap: 1.5rem; justify-content: center; align-items: center; margin-top: 1rem;">
+                        <button onclick="prevCertificate()" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.5); border: 1px solid rgba(0,240,255,0.5); color: var(--accent-primary); font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s;">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button id="zoomToggle" onclick="toggleCertificateZoom()" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.5); border: 1px solid rgba(0,240,255,0.5); color: var(--accent-primary); font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s;">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                        <button onclick="nextCertificate()" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.5); border: 1px solid rgba(0,240,255,0.5); color: var(--accent-primary); font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s;">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
                     </div>
-                </div>
-                
-                <div class="cert-card" style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; border: 1px solid rgba(100, 116, 139, 0.2); transition: all 0.3s; position: relative; overflow: hidden;">
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #dc2626, #7c3aed, #3b82f6);"></div>
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #3b82f6, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white;">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <div>
-                            <h3 style="font-size: 1.2rem; color: var(--text-primary); margin: 0;">Erasmus+ Certificate</h3>
-                            <p style="color: var(--text-dim); font-size: 0.9rem; margin: 0.5rem 0 0 0;">FH St. Pölten, Austria</p>
-                        </div>
-                    </div>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5;">
-                        International program focused on digital innovation and AI applications in interdisciplinary teams.
-                    </p>
-                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: var(--accent-primary); font-size: 0.9rem; font-weight: 500;">Completed: May-June 2025</span>
-                    </div>
-                </div>
-                
-                <div class="cert-card" style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; border: 1px solid rgba(100, 116, 139, 0.2); transition: all 0.3s; position: relative; overflow: hidden;">
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #dc2626, #7c3aed, #3b82f6);"></div>
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #10b981, #3b82f6); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white;">
-                            <i class="fas fa-trophy"></i>
-                        </div>
-                        <div>
-                            <h3 style="font-size: 1.2rem; color: var(--text-primary); margin: 0;">Best Project Award</h3>
-                            <p style="color: var(--text-dim); font-size: 0.9rem; margin: 0.5rem 0 0 0;">BUas Data Science Program</p>
-                        </div>
-                    </div>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5;">
-                        Recognized for outstanding work in AI compliance systems development and innovative problem-solving.
-                    </p>
-                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: var(--accent-primary); font-size: 0.9rem; font-weight: 500;">Academic Year 2024-2025</span>
-                    </div>
-                </div>
-                
-                <div class="cert-card" style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; border: 1px solid rgba(100, 116, 139, 0.2); transition: all 0.3s; position: relative; overflow: hidden;">
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #dc2626, #7c3aed, #3b82f6);"></div>
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #f59e0b, #dc2626); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white;">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <div>
-                            <h3 style="font-size: 1.2rem; color: var(--text-primary); margin: 0;">Python Developer Certification</h3>
-                            <p style="color: var(--text-dim); font-size: 0.9rem; margin: 0.5rem 0 0 0;">Self-Paced Learning</p>
-                        </div>
-                    </div>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5;">
-                        Advanced Python programming with focus on data science, web development, and automation.
-                    </p>
-                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: var(--accent-primary); font-size: 0.9rem; font-weight: 500;">Completed: 2024</span>
-                    </div>
-                </div>
-                
-                <div class="cert-card" style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; border: 1px solid rgba(100, 116, 139, 0.2); transition: all 0.3s; position: relative; overflow: hidden;">
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #dc2626, #7c3aed, #3b82f6);"></div>
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #8b5cf6, #3b82f6); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white;">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div>
-                            <h3 style="font-size: 1.2rem; color: var(--text-primary); margin: 0;">Team Leadership Excellence</h3>
-                            <p style="color: var(--text-dim); font-size: 0.9rem; margin: 0.5rem 0 0 0;">Duckietown Autonomous Driving</p>
-                        </div>
-                    </div>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5;">
-                        Led ADSAI Y1 team in developing autonomous vehicle navigation systems and computer vision solutions.
-                    </p>
-                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: var(--accent-primary); font-size: 0.9rem; font-weight: 500;">Academic Year 2023-2024</span>
-                    </div>
-                </div>
-                
-                <div class="cert-card" style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; border: 1px solid rgba(100, 116, 139, 0.2); transition: all 0.3s; position: relative; overflow: hidden;">
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #dc2626, #7c3aed, #3b82f6);"></div>
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #dc2626, #10b981); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white;">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <div>
-                            <h3 style="font-size: 1.2rem; color: var(--text-primary); margin: 0;">Research Excellence</h3>
-                            <p style="color: var(--text-dim); font-size: 0.9rem; margin: 0.5rem 0 0 0;">Cybersecurity & SME Investment</p>
-                        </div>
-                    </div>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5;">
-                        Published research on cybersecurity's impact on SME investment confidence using mixed-methods approach.
-                    </p>
-                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: var(--accent-primary); font-size: 0.9rem; font-weight: 500;">Completed: 2024</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Certificate Slideshow -->
-            <div style="margin-top: 4rem; position: relative; max-width: 1000px; margin-left: auto; margin-right: auto;">
-                <h3 style="text-align: center; color: var(--text-primary); margin-bottom: 2rem; font-size: 1.8rem;">Certificate Gallery</h3>
-                
-                <!-- Main Certificate Display -->
-                <div id="certificatesMain" style="position: relative; height: 600px; border-radius: 12px; overflow: hidden; background: var(--bg-secondary); border: 1px solid rgba(0, 240, 255, 0.2); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);">
-                    <img id="certificateImage" src="images/Diploma.png" alt="Certificate" 
-                         style="width: 100%; height: 100%; object-fit: contain; background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(0, 240, 255, 0.1)); transition: opacity 0.3s ease;">
-                    
-                    <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6), transparent);">
-                        <h4 id="certificateTitle" style="color: white; font-size: 1.4rem; font-weight: 600; margin-bottom: 0.5rem;">Academic Diploma</h4>
-                        <p id="certificateDescription" style="color: rgba(255, 255, 255, 0.9); font-size: 1rem; line-height: 1.4; margin: 0;">Bachelor's degree in Artificial Intelligence & Data Science</p>
-                    </div>
-                    
-                    <!-- Navigation Buttons -->
-                    <button onclick="prevCertificate()" style="position: absolute; left: 1.5rem; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(0, 240, 255, 0.5); border-radius: 50%; color: var(--accent-primary); font-size: 1.5rem; cursor: pointer; backdrop-filter: blur(10px); transition: all 0.3s; z-index: 10;">
-                        ‹
-                    </button>
-                    <button onclick="nextCertificate()" style="position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(0, 240, 255, 0.5); border-radius: 50%; color: var(--accent-primary); font-size: 1.5rem; cursor: pointer; backdrop-filter: blur(10px); transition: all 0.3s; z-index: 10;">
-                        ›
-                    </button>
-                    
-                    <!-- Zoom Toggle -->
-                    <button onclick="toggleCertificateZoom()" id="zoomToggle" style="position: absolute; top: 1.5rem; right: 1.5rem; width: 44px; height: 44px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(0, 240, 255, 0.5); border-radius: 50%; color: var(--accent-primary); font-size: 1.2rem; cursor: pointer; backdrop-filter: blur(10px); transition: all 0.3s; z-index: 10;">
-                        <i class="fas fa-search-plus"></i>
-                    </button>
-                </div>
-                
-                <!-- Certificate Thumbnails -->
-                <div id="certificatesThumbs" style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
-                    <!-- Thumbnails will be generated by JavaScript -->
-                </div>
-                
-                <div style="text-align: center; margin-top: 1.5rem;">
-                    <span id="certificatesCounter" style="color: var(--accent-primary); font-size: 1.1rem; font-weight: 500;">1 of 5</span>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- Professional Journey Gallery -->
     <section id="gallery">
         <div class="container">
@@ -2361,35 +1973,23 @@
                     Highlights from conferences, presentations, and collaborative work
                 </p>
             </div>
-            
             <div style="position: relative; max-width: 1000px; margin: 0 auto;">
-                <!-- Main Gallery Display -->
                 <div id="galleryMain" style="position: relative; height: 600px; border-radius: 12px; overflow: hidden; background: var(--bg-secondary); border: 1px solid rgba(0, 240, 255, 0.2);">
-                    <!-- PLACEHOLDER IMAGES: Replace these with your actual image paths -->
-                    <img id="galleryImage" src="images/profile_pic.png" alt="Gallery image" 
-                         style="width: 100%; height: 100%; object-fit: contain; background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(0, 240, 255, 0.1));">
-                    
+                    <img id="galleryImage" src="images/profile_pic.png" alt="Gallery image" style="width: 100%; height: 100%; object-fit: contain; background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(0, 240, 255, 0.1));">
                     <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);">
                         <p id="galleryCaption" style="color: white; font-size: 1.2rem; font-weight: 500;">Professional activity</p>
                     </div>
-                    
-                    <!-- Navigation Buttons -->
                     <button onclick="prevGalleryImage()" style="position: absolute; left: 1.5rem; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(0, 240, 255, 0.5); border-radius: 50%; color: var(--accent-primary); font-size: 1.5rem; cursor: pointer; backdrop-filter: blur(10px);">‹</button>
                     <button onclick="nextGalleryImage()" style="position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(0, 240, 255, 0.5); border-radius: 50%; color: var(--accent-primary); font-size: 1.5rem; cursor: pointer; backdrop-filter: blur(10px);">›</button>
                 </div>
-                
-                <!-- Thumbnail Navigation -->
-                <div id="galleryThumbs" style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem;">
-                    <!-- Thumbnails will be generated by JavaScript -->
-                </div>
-                
+                <div id="galleryThumbs" style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem;"></div>
                 <div style="text-align: center; margin-top: 1.5rem;">
                     <span id="galleryCounter" style="color: var(--accent-primary); font-size: 1.1rem;">1 of 5</span>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- Contact Section -->
     <section id="contact">
         <div class="container">
@@ -2956,42 +2556,6 @@ Type 'help' for available commands
                 img.style.objectFit = certificateZoomed ? 'cover' : 'contain';
                 img.style.transform = certificateZoomed ? 'scale(1.2)' : 'scale(1)';
             }
-            
-            updateCertificateThumbnails();
-        }
-        
-        function updateCertificateThumbnails() {
-            const thumbsContainer = document.getElementById('certificatesThumbs');
-            if (!thumbsContainer) return;
-            
-            thumbsContainer.innerHTML = '';
-            certificates.forEach((certificate, index) => {
-                const thumb = document.createElement('button');
-                thumb.style.cssText = `
-                    width: 80px;
-                    height: 80px;
-                    border-radius: 8px;
-                    overflow: hidden;
-                    border: 2px solid ${index === currentCertificateIndex ? 'var(--accent-primary)' : 'rgba(0, 240, 255, 0.3)'};
-                    cursor: pointer;
-                    transition: all 0.3s;
-                    transform: ${index === currentCertificateIndex ? 'scale(1.1)' : 'scale(1)'};
-                    box-shadow: ${index === currentCertificateIndex ? '0 0 20px rgba(0, 240, 255, 0.4)' : 'none'};
-                `;
-                
-                const thumbImg = document.createElement('img');
-                thumbImg.src = certificate.src;
-                thumbImg.alt = certificate.title;
-                thumbImg.style.cssText = 'width: 100%; height: 100%; object-fit: cover;';
-                
-                thumb.appendChild(thumbImg);
-                thumb.onclick = () => {
-                    currentCertificateIndex = index;
-                    updateCertificateDisplay();
-                };
-                
-                thumbsContainer.appendChild(thumb);
-            });
         }
         
         function nextCertificate() {
